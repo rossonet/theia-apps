@@ -32,7 +32,7 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
-      - name: Logout from GitHub registry
+      - name: Logout from Docker Hub
         run: docker logout
 
       - name: Log into GitHub registry
@@ -48,3 +48,7 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+
+      - name: Logout from GitHub
+        run: docker logout docker.pkg.github.com
+
