@@ -1,5 +1,9 @@
+![Docker Build IDE Ar4k](https://github.com/rossonet/theia-apps/workflows/Docker%20Build%20IDE%20Ar4k/badge.svg)
+
+
+
+
 # Theia applications
-[![Build Status](https://travis-ci.org/theia-ide/theia-apps.svg?branch=master)](https://travis-ci.org/theia-ide/theia-apps)
 
 [Theia](https://github.com/theia-ide/theia) is a platform to develop Cloud & Desktop IDEs with modern web technologies.
 
