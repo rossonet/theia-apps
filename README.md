@@ -1,7 +1,20 @@
 ![Docker Build IDE Ar4k](https://github.com/rossonet/theia-apps/workflows/Docker%20Build%20IDE%20Ar4k/badge.svg)
 
+## simple Gradle tasks
 
+```
+task theiaIdeBackend(type: Exec) {
+    group "Theia IDE on Docker Container"
+    workingDir "./"
+    commandLine 'docker', 'run', '--init', '-p', '3000:3000', '-d', '-v', "${projectDir}:/home/project:cached", 'rossonet/theia-ide:latest' 
+}
 
+task theiaIdeLocalBrowser(type: Exec) {
+    group "Theia IDE on Docker Container"
+    workingDir "./"
+    commandLine 'xdg-open', 'http://localhost:3000'
+}
+```
 
 # Theia applications
 
