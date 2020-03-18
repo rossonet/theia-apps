@@ -8,7 +8,7 @@ ENV JAVA_HOME=/opt/ibm/java \
     PATH=/opt/ibm/java/jre/bin:/opt/ibm/java/bin/:$PATH
 
 RUN apt-get update && \
-  apt-get install -y curl apt-transport-https maven gradle && \
+  apt-get install -y curl apt-transport-https maven gradle sudo nmap vim xpra arduino && \
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update && apt-get install -y yarn && \
@@ -16,6 +16,7 @@ RUN apt-get update && \
 # See : https://github.com/theia-ide/theia-apps/issues/34
 RUN adduser --disabled-password --gecos '' theia
 RUN chmod g+rw /home && \
+    usermod -a -G node theia && \
     mkdir -p /home/project && \
     chown -R theia:theia /home/theia && \
     chown -R theia:theia /home/project;

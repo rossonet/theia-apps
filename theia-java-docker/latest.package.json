@@ -3,7 +3,7 @@
     "theia": {
         "frontend": {
             "config": {
-                "applicationName": "Theia Java Example",
+                "applicationName": "Theia Java IDE",
                 "preferences": {
                     "files.enableTrash": false
                 }
@@ -25,7 +25,8 @@
         "@theia/plugin-ext-vscode": "latest",
         "@theia/preferences": "latest",
         "@theia/search-in-workspace": "latest",
-        "@theia/terminal": "latest"
+        "@theia/terminal": "latest",
+	"@theia/callhierarchy": "latest"
     },
     "theiaPluginsDir": "plugins",
     "theiaPlugins": {
