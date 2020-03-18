@@ -19,12 +19,13 @@ RUN yarn --pure-lockfile && \
 FROM node:${NODE_VERSION}-alpine
 # See : https://github.com/theia-ide/theia-apps/issues/34
 RUN addgroup theia && \
+    usermod -a -G node theia && \
     adduser -G theia -s /bin/sh -D theia;
 RUN chmod g+rw /home && \
     mkdir -p /home/project && \
     chown -R theia:theia /home/theia && \
     chown -R theia:theia /home/project;
-RUN apk add --no-cache git openssh bash
+RUN apk add --no-cache git openssh bash sudo nmap vim xpra
 ENV HOME /home/theia
 WORKDIR /home/theia
 COPY --from=0 --chown=theia:theia /home/theia /home/theia
