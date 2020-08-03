@@ -15,6 +15,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 # See : https://github.com/theia-ide/theia-apps/issues/34
 RUN adduser --disabled-password --gecos '' theia
+ADD Pivotal.vscode-spring-boot-1.20.0.vsix /home/theia/plugins/
 RUN chmod g+rw /home && \
     usermod -a -G node theia && \
     mkdir -p /home/project && \
@@ -25,7 +26,6 @@ USER theia
 
 ARG version=latest
 ADD $version.package.json ./package.json
-ADD Pivotal.vscode-spring-boot-1.20.0.vsix /home/theia/plugins/
 ARG GITHUB_TOKEN
 RUN yarn --cache-folder ./ycache && rm -rf ./ycache && \
     yarn theia build ; \
