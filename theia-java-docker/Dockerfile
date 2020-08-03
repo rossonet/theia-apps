@@ -25,6 +25,7 @@ USER theia
 
 ARG version=latest
 ADD $version.package.json ./package.json
+ADD Pivotal.vscode-spring-boot-1.20.0.vsix /home/theia/plugins/
 ARG GITHUB_TOKEN
 RUN yarn --cache-folder ./ycache && rm -rf ./ycache && \
     yarn theia build ; \
